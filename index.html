@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORDAN/UFES - Enfrentamento à Violência Contra a Mulher</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Cor personalizada Lilás/Roxo para identidade visual de movimentos femininos */
+        .bg-fordan {
+            background-color: #6B46C1; /* Roxo vibrante */
+        }
+        .text-fordan {
+            color: #553C9A;
+        }
+        .btn-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        /* Estilo para a barra de rolagem dos modais */
+        .modal-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+        .modal-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        .modal-scroll::-webkit-scrollbar-thumb {
+            background: #888; 
+            border-radius: 4px;
+        }
+        .modal-scroll::-webkit-scrollbar-thumb:hover {
+            background: #555; 
+        }
+    </style>
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    
+                    <img src="IMG-20251017-WA0008.jpg" alt="Logo FORDAN UFES 20 Anos" class="h-14 w-auto object-contain rounded-md" onerror="this.onerror=null; this.src='https://placehold.co/100x100/6B46C1/white?text=FORDAN';">
+                    
+                    <div>
+                        <h1 class="font-bold text-xl text-gray-800 tracking-tight leading-tight">FORDAN / UFES</h1>
+                        <p class="text-xs text-gray-500 font-medium uppercase tracking-wider">Apoio e Proteção</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#como-funciona" class="text-gray-600 hover:text-purple-700 font-medium transition">Como Funciona</a>
+                    <a href="#acoes" class="text-gray-600 hover:text-purple-700 font-medium transition">Serviços</a>
+                    <div class="h-4 w-px bg-gray-300 mx-2"></div> <!-- Separador visual -->
+                    <a href="#privacyModal" onclick="openModal('privacyModal')" class="text-gray-600 hover:text-purple-700 font-medium transition text-sm">Política de Privacidade</a>
+                    <a href="#termsModal" onclick="openModal('termsModal')" class="text-gray-600 hover:text-purple-700 font-medium transition text-sm">Termos de Serviços</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-r from-purple-800 to-purple-600 text-white py-16 md:py-24">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+                Enfrentamento à Violência Contra as Mulheres
+            </h2>
+            <p class="text-lg md:text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
+                Uma ferramenta segura e acessível da Universidade Federal do Espírito Santo para garantir seus direitos, proteção e apoio. Você não está sozinha.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#acoes" class="bg-white text-purple-800 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-100 transition transform hover:scale-105">
+                    Quero Ajuda
+                </a>
+                <a href="#como-funciona" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition">
+                    Saiba Mais
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Como Funciona / Perfis -->
+    <section id="#como-funciona" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800">Como o App Funciona</h2>
+                <p class="text-gray-600 mt-2">O aplicativo foi desenhado para registrar informações com segurança e organizar seu núcleo de apoio.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+                <!-- Perfil Usuário -->
+                <div class="bg-purple-50 p-8 rounded-2xl border border-purple-100 hover:shadow-lg transition">
+                    <div class="w-14 h-14 bg-purple-200 text-purple-700 rounded-full flex items-center justify-center mb-6 text-2xl">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Perfil da Usuária</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Crie seu cadastro pessoal seguro. Aqui você armazena seus dados básicos, documentos e histórico. Todas as informações são protegidas e usadas exclusivamente para agilizar processos legais e de apoio.
+                    </p>
+                </div>
+
+                <!-- Perfil Familiar -->
+                <div class="bg-pink-50 p-8 rounded-2xl border border-pink-100 hover:shadow-lg transition">
+                    <div class="w-14 h-14 bg-pink-200 text-pink-700 rounded-full flex items-center justify-center mb-6 text-2xl">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Perfil Familiar</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Cadastre dependentes e filhos. Esta área é essencial para facilitar cálculos de pensão alimentícia e garantir que as medidas protetivas abranjam todo o seu núcleo familiar.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Botões de Ação (Core Features) -->
+    <section id="#acoes" class="py-16 bg-gray-50">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Serviços e Apoio Imediato</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                
+            <a href="https://agendamento.defensoria.es.def.br/auth/sign_in"target="_blank" class="bg-white p-6 rounded-xl shadow-sm border-b-4 border-blue-500 hover:shadow-md transition group cursor-pointer btn-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="bg-blue-100 p-3 rounded-lg text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition">
+                            <i class="fa-solid fa-hand-holding-dollar text-2xl"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-blue-500"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Solicitar Pensão Alimentícia</h3>
+                    <p class="text-sm text-gray-500">Ferramenta para cálculo de gastos, cadastro de dependentes e geração de relatórios para solicitação judicial.</p>
+                </a>
+
+                <a href="https://wa.me/556196100180" target="_blank" class="bg-white p-6 rounded-xl shadow-md border-b-4 border-green-500 hover:shadow-lg transition group cursor-pointer btn-hover relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-bl-lg">EMERGÊNCIA</div>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="bg-green-100 p-3 rounded-lg text-green-600 group-hover:bg-green-600 group-hover:text-white transition">
+                            <i class="fa-brands fa-whatsapp text-3xl"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-gray-300 group-hover:text-green-500"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Acionar o 180</h3>
+                    <p class="text-sm text-gray-500">Fale diretamente com a Central de Atendimento à Mulher pelo WhatsApp oficial. Atendimento 24h.</p>
+                </a>
+
+                <a href="https://centraldechamados.defensoria.es.def.br/marketplace/formcreator/front/formdisplay.php?id=101"target="_blank" class="bg-white p-6 rounded-xl shadow-sm border-b-4 border-purple-600 hover:shadow-md transition group cursor-pointer btn-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="bg-purple-100 p-3 rounded-lg text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition">
+                            <i class="fa-solid fa-shield-halved text-2xl"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-purple-500"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">Solicitar Medida Protetiva</h3>
+                    <p class="text-sm text-gray-500">Inicie o processo de proteção legal. Relate ocorrências e gere documentos necessários para sua segurança.</p>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Legal -->
+    <footer class="bg-gray-900 text-gray-300 py-10 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <h4 class="text-white font-bold text-lg mb-1">FORDAN / UFES</h4>
+                    <p class="text-sm text-gray-400">Programa de Pesquisa e Extensão</p>
+                    <p class="text-xs text-gray-500 mt-2">&copy; 2024 Todos os direitos reservados.</p>
+                </div>
+                
+                <!-- Botões/Abas Legais -->
+                <div class="flex gap-4 text-sm font-medium">
+                    <button id="btn-politica-privacidade" onclick="openModal('privacy-modal')" class="hover:text-white transition underline decoration-gray-600 underline-offset-4">
+                        Política de Privacidade
+                    </button>
+                    <span class="text-gray-600">|</span>
+                    <button id="btn-termos-servicos" onclick="openModal('terms-modal')" class="hover:text-white transition underline decoration-gray-600 underline-offset-4">
+                        Termos de Serviços
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL: Política de Privacidade -->
+    <div id="#privacyModal" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity backdrop-blur-sm" onclick="closeModal('privacyModal')"></div>
+
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+                <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-3xl">
+                    <!-- Header Modal -->
+                    <div class="bg-purple-50 px-4 py-3 sm:px-6 flex justify-between items-center border-b border-purple-100">
+                        <h3 class="text-lg font-semibold leading-6 text-purple-900" id="modal-title">Política de Privacidade</h3>
+                        <button type="button" onclick="closeModal('privacyModal')" class="text-gray-400 hover:text-gray-500 focus:outline-none">
+                            <i class="fa-solid fa-xmark text-xl"></i>
+                        </button>
+                    </div>
+                    <!-- Body Modal -->
+                    <div id="conteudo-politica-privacidade" class="px-4 py-5 sm:p-6 max-h-[70vh] overflow-y-auto modal-scroll text-gray-700 text-sm leading-relaxed space-y-4">
+                        <h4 class="font-bold text-gray-900">POLÍTICA DE PRIVACIDADE – APLICATIVO FORDAN</h4>
+                        <p>Esta Política de Privacidade descreve como o PROGRAMA DE PESQUISA E EXTENSÃO DA UNIVERSIDADE FEDERAL DO ESPÍRITO SANTO (FORDAN) coleta, usa, armazena e protege os dados pessoais dos usuários de seu aplicativo, em conformidade com a Lei nº 13.709/2018 (Lei Geral de Proteção de Dados Pessoais – LGPD).</p>
+
+                        <h5 class="font-bold text-gray-900 mt-4">1. Controlador dos Dados</h5>
+                        <p>O Controlador responsável pelas decisões referentes ao tratamento dos dados é o PROGRAMA DE PESQUISA E EXTENSÃO DA UNIVERSIDADE FEDERAL DO ESPÍRITO SANTO (FORDAN).</p>
+
+                        <h5 class="font-bold text-gray-900 mt-4">2. Dados Coletados</h5>
+                        <p>Para a utilização dos serviços, o aplicativo poderá coletar as seguintes categorias de dados:</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Dados de Identificação:</strong> Nome completo, nome social, CPF, gênero, documento de identificação (RG ou CNH), data de nascimento, foto de perfil.</li>
+                            <li><strong>Dados de Contato e Localização:</strong> Endereço de email, telefones (principal e emergência), endereço residencial completo e dados específicos de comunidades tradicionais.</li>
+                            <li><strong>Dados Socioeconômicos:</strong> Escolaridade, renda mensal, situação profissional, comprovante de renda, situação de dependência financeira.</li>
+                            <li><strong>Dados de Acesso:</strong> Hash da senha e histórico de ações no aplicativo (logs).</li>
+                            <li><strong>Dados Sensíveis:</strong> Convicção religiosa, deficiências, orientação sexual e origem racial ou étnica.</li>
+                            <li><strong>Dados sobre Terceiros:</strong> Informações sobre familiares, genitores, filhos beneficiários e redes de apoio.</li>
+                            <li><strong>Dados Específicos do Serviço:</strong>
+                                <ul class="list-circle pl-5 mt-1">
+                                    <li>Medidas Protetivas: Relatos de violência, tipo e data da violência, ameaças à vida.</li>
+                                    <li>Pensão Alimentícia: Dados bancários, gastos mensais com comprovantes, genitor associado.</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <h5 class="font-bold text-gray-900 mt-4">3. Finalidade do Tratamento</h5>
+                        <ol class="list-decimal pl-5 space-y-1">
+                            <li><strong>Prestação do Serviço:</strong> Viabilizar solicitações de Medida Protetiva e Pensão Alimentícia.</li>
+                            <li><strong>Pesquisa Acadêmica:</strong> Realização de estudos acadêmicos, garantindo anonimização sempre que possível.</li>
+                            <li><strong>Suporte:</strong> Processamento de reclamações.</li>
+                        </ol>
+
+                        <h5 class="font-bold text-gray-900 mt-4">4. Tratamento de Dados de Crianças e Adolescentes</h5>
+                        <p>O aplicativo está autorizado a tratar dados de familiares com grau de parentesco de "filho". Este uso é restrito exclusivamente para as finalidades de solicitação de Pensão Alimentícia e Medidas Protetivas.</p>
+
+                        <h5 class="font-bold text-gray-900 mt-4">5. Compartilhamento de Dados</h5>
+                        <p>O Controlador poderá compartilhar dados com o FORDAN, agentes de tratamento para estudos (anonimizados) e órgãos públicos quando necessário para cumprimento de obrigações legais.</p>
+
+                        <h5 class="font-bold text-gray-900 mt-4">6. Armazenamento e Segurança</h5>
+                        <p>Os dados serão mantidos enquanto pertinentes para as finalidades do serviço. O Controlador adota medidas de segurança técnicas e administrativas.</p>
+
+                        <h5 class="font-bold text-gray-900 mt-4">7. Direitos do Titular</h5>
+                        <p>O usuário pode solicitar confirmação, acesso, correção, anonimização, portabilidade e revogação do consentimento através do canal de contato.</p>
+
+                        <h5 class="font-bold text-gray-900 mt-4">8. Canal de Contato</h5>
+                        <p>Dúvidas: <strong>fordanlgpd@gmail.com</strong></p>
+                    </div>
+                    <!-- Footer Modal -->
+                    <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 border-t border-gray-200">
+                        <button type="button" onclick="closeModal('privacyModal')" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: Termos de Serviço -->
+    <div id="#termsModal" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title-terms" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity backdrop-blur-sm" onclick="closeModal('termsModal')"></div>
+
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+                <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-3xl">
+                    <div class="bg-purple-50 px-4 py-3 sm:px-6 flex justify-between items-center border-b border-purple-100">
+                        <h3 class="text-lg font-semibold leading-6 text-purple-900" id="modal-title-terms">Termos de Serviços</h3>
+                        <button type="button" onclick="closeModal('termsModal')" class="text-gray-400 hover:text-gray-500 focus:outline-none">
+                            <i class="fa-solid fa-xmark text-xl"></i>
+                        </button>
+                    </div>
+                    <div id="conteudo-termos-servicos" class="px-4 py-5 sm:p-6 max-h-[70vh] overflow-y-auto modal-scroll text-gray-700 text-sm leading-relaxed space-y-4">
+                        <h4 class="font-bold text-gray-900">Termos de Uso - FORDAN</h4>
+
+                        <h5 class="font-bold text-gray-900 mt-4">1. Do Objeto e Finalidade do Aplicativo</h5>
+                        <p>O aplicativo é gerido pelo PROGRAMA DE PESQUISA E EXTENSÃO DA UNIVERSIDADE FEDERAL DO ESPÍRITO SANTO (FORDAN). Finalidades exclusivas:</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Realizar solicitações de Medida Protetiva;</li>
+                            <li>Realizar solicitações de Pensão Alimentícia;</li>
+                            <li>Possibilitar a realização de estudos acadêmicos por órgão de pesquisa.</li>
+                        </ul>
+
+                        <h5 class="font-bold text-gray-900 mt-4">2. Da Gratuidade</h5>
+                        <p>O Controlador (FORDAN) compromete-se a fornecer os serviços de forma gratuita.</p>
+
+                        <h5 class="font-bold text-gray-900 mt-4">3. Das Funcionalidades</h5>
+                        <p>Processamento de registros relacionados a medidas protetivas (áudio, fotos), cálculo e gestão de pensão alimentícia e canal de reclamações.</p>
+
+                        <h5 class="font-bold text-gray-900 mt-4">4. Do Tratamento de Dados de Menores</h5>
+                        <p>O serviço está autorizado a utilizar dados de familiares com grau de parentesco de "filho" exclusivamente para fins de pensão e medidas protetivas.</p>
+
+                        <h5 class="font-bold text-gray-900 mt-4">5. Da Segurança e Responsabilidade</h5>
+                        <p>O Controlador responsabiliza-se pela manutenção de medidas de segurança para proteger as informações contra acessos não autorizados.</p>
+
+                        <h5 class="font-bold text-gray-900 mt-4">6. Do Prazo de Utilização</h5>
+                        <p>Dados mantidos durante o período pertinente às finalidades ou para cumprimento legal.</p>
+
+                        <h5 class="font-bold text-gray-900 mt-4">7. Propriedade Intelectual</h5>
+                        <p>O código, a logo e o design do app pertencem ao FORDAN/UFES e não podem ser copiados.</p>
+
+                        <h5 class="font-bold text-gray-900 mt-4">8. Conduta do Usuário</h5>
+                        <p>É proibido o uso do app para trotes, fraudes ou envio de conteúdo ofensivo.</p>
+
+                        <h5 class="font-bold text-gray-900 mt-4">9. Isenção de Garantias</h5>
+                        <p>O software é fornecido "como está" e podem ocorrer bugs.</p>
+
+                        <h5 class="font-bold text-gray-900 mt-4">10. Licença de Uso</h5>
+                        <p>O usuário tem uma licença revogável e não exclusiva para usar o app.</p>
+                    </div>
+                    <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 border-t border-gray-200">
+                        <button type="button" onclick="closeModal('termsModal')" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Concordo e Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts simples para controle dos Modais -->
+    <script>
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('hidden');
+            // Previne rolagem do body quando modal está aberto
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('hidden');
+            // Restaura rolagem do body
+            document.body.style.overflow = 'auto';
+        }
+
+        // Fechar modal com tecla ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModal('privacyModal');
+                closeModal('termsModal');
+            }
+        });
+    </script>
+</body>
+</html>
